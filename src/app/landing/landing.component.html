@@ -1,0 +1,82 @@
+<div class="login-state" *ngIf="state == 'login'">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="loginForm.valid && loginFormSubmit()"
+  >
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="loginForm.invalid">Please Enter vaild email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Login</button>
+  </form>
+  <div class="register">
+    <button
+      mat-button
+      color="primary"
+      class="sign-up"
+      (click)="state = 'signup'"
+    >
+      Or Sign Up
+    </button>
+  </div>
+</div>
+
+<div class="sign-up" *ngIf="state == 'signup'">
+  <form
+    [formGroup]="signupForm"
+    (ngSubmit)="signupForm.valid && signupFormSubmit()"
+  >
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="username" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="signupForm.invalid">Please Enter vaild email</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="password" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Street Name</mat-label>
+      <input matInput formControlName="street_name" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Pin Code</mat-label>
+      <input matInput formControlName="pincode" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>State</mat-label>
+      <input matInput formControlName="state" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Country</mat-label>
+      <input matInput formControlName="country" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">SignUp</button>
+  </form>
+  <div>
+    Already a user <a (click)="state = 'login'" class="go-back">Login</a>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+.example-icon {
+  padding: 0 14px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.items {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-gap: 20px;
+  -webkit-grid-gap: 20px;
+
+  mat-card {
+    width: 300px;
+  }
+}
